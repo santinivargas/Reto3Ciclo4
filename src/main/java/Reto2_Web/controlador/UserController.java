@@ -6,6 +6,7 @@ package Reto2_Web.controlador;
 import Reto2_Web.servicio.UserService;
 import Reto2_Web.modelo.User;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
@@ -42,7 +43,10 @@ public class UserController {
     public User create(@RequestBody User user) {
         return userService.create(user);
     }
-    
+    @GetMapping("/{id}")
+    public Optional<User> getUsers(@PathVariable("id")int id) {
+        return userService.getUser(id);
+    }
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public User update(@RequestBody User user) {
