@@ -7,6 +7,7 @@
 
 package Reto2_Web;
 import Reto2_Web.interfaces.InterfaceUser;
+import Reto2_Web.interfaces.OrderInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,7 +20,9 @@ import Reto2_Web.interfaces.ProductCrudRepository;
 public class Reto2WebApplication implements CommandLineRunner {
    @Autowired
     private ProductCrudRepository interfaceSupplements;
-
+   @Autowired
+   private OrderInterface orderInterface;
+           
    @Autowired
     private InterfaceUser interfaceUser;
 	public static void main(String[] args) {
@@ -29,6 +32,7 @@ public class Reto2WebApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         interfaceSupplements.deleteAll();
+        orderInterface.deleteAll();
         interfaceUser.deleteAll();
     }
         
